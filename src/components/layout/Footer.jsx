@@ -47,9 +47,20 @@ export default function Footer() {
           <p className="mt-4 text-xs text-white/30 font-mono">DEMO SITE — for client presentation only</p>
         </div>
       </div>
-      <div className="border-t border-white/8 py-5 text-center text-xs text-white/30 font-mono">
-        © {new Date().getFullYear()} RR Snooker & Cafe — All rights reserved.
-      </div>
+      <div className="border-t border-white/8 py-5 text-center text-xs text-white/30 font-mono space-y-2">
+  <p>
+    © {new Date().getFullYear()} RR Snooker & Cafe — All rights reserved.
+  </p>
+
+  <a
+    href="https://oxadmedia.in"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center gap-1 text-cue-400 hover:text-cue-300 transition-colors duration-300 hover:underline"
+  >
+    ✨ Developed with ❤️ by <span className="font-semibold">Oxad Media</span>
+  </a>
+</div>
     </footer>
   )
 }

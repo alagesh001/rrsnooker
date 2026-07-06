@@ -1,16 +1,10 @@
 import { motion } from 'framer-motion'
 import { HiOutlinePlus } from 'react-icons/hi'
 import { useCart } from '../../context/CartContext'
+import menuImage from '../../assets/menu-placeholder.jpg'
 
-const PLACEHOLDER_GRADIENTS = [
-  'from-cue-500/25 to-felt-800',
-  'from-chalk-500/25 to-felt-800',
-  'from-rail-400/25 to-felt-800',
-]
-
-export default function MenuCard({ item, index = 0 }) {
+export default function MenuCard({ item }) {
   const { addItem } = useCart()
-  const gradient = PLACEHOLDER_GRADIENTS[index % PLACEHOLDER_GRADIENTS.length]
 
   return (
     <motion.div
@@ -21,8 +15,13 @@ export default function MenuCard({ item, index = 0 }) {
       transition={{ duration: 0.35 }}
       className="glass rounded-2xl overflow-hidden flex flex-col group"
     >
-      <div className={`relative h-32 bg-gradient-to-br ${gradient} flex items-center justify-center`}>
-        <span className="font-display text-3xl font-bold text-white/10 select-none">RR</span>
+      <div className="relative h-32 overflow-hidden">
+        <img
+          src={menuImage}
+          alt={item.name}
+          className="w-full h-full object-cover"
+        />
+
         <span
           className={`absolute top-3 left-3 w-3 h-3 rounded-sm rotate-45 ${
             item.veg ? 'bg-cue-500' : 'bg-red-500'
@@ -30,11 +29,21 @@ export default function MenuCard({ item, index = 0 }) {
           title={item.veg ? 'Vegetarian' : 'Non-Vegetarian'}
         />
       </div>
+
       <div className="p-4 flex flex-col flex-1">
-        <h3 className="font-display font-semibold text-white text-sm leading-snug">{item.name}</h3>
-        {item.desc && <p className="text-xs text-white/45 mt-1">{item.desc}</p>}
+        <h3 className="font-display font-semibold text-white text-sm leading-snug">
+          {item.name}
+        </h3>
+
+        {item.desc && (
+          <p className="text-xs text-white/45 mt-1">{item.desc}</p>
+        )}
+
         <div className="mt-auto pt-4 flex items-center justify-between">
-          <span className="font-mono font-semibold text-cue-400">₹{item.price}</span>
+          <span className="font-mono font-semibold text-cue-400">
+            ₹{item.price}
+          </span>
+
           <button
             onClick={() => addItem(item)}
             aria-label={`Add ${item.name} to cart`}
