@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  background-color: #07090A;
+  color: #F2F5F3;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(52, 227, 122, 0.3);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0D0E;
+}
+::-webkit-scrollbar-thumb {
+  background: #1FB863;
+  border-radius: 999px;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-strong {
+  background: rgba(15, 20, 19, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.text-gradient-cue {
+  background: linear-gradient(90deg, #5CFFA0 0%, #22C9FF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.felt-texture {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(52,227,122,0.06) 0%, transparent 40%),
+    radial-gradient(circle at 80% 60%, rgba(34,201,255,0.05) 0%, transparent 45%);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid #34E37A;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
