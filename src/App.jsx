@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter,Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
@@ -22,6 +22,8 @@ function ScrollToTop() {
 
 export default function App() {
   return (
+    <BrowserRouter basename="/rrsnooker">
+
     <CartProvider>
       <BookingProvider>
         <ScrollToTop />
@@ -40,5 +42,6 @@ export default function App() {
         <BookingModal />
       </BookingProvider>
     </CartProvider>
+    </BrowserRouter>
   )
 }
